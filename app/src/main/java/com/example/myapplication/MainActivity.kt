@@ -75,7 +75,6 @@ fun DefaultPreview() {
 }
 @Composable
 fun MyComposable() {
-    val showMessage = remember { mutableStateOf(false) }
     Box(
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
