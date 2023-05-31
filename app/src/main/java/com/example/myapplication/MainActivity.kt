@@ -10,6 +10,8 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
@@ -73,6 +75,7 @@ fun DefaultPreview() {
 }
 @Composable
 fun MyComposable() {
+
     Box(
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
@@ -91,15 +94,17 @@ fun MyComposable() {
             val rect2Size = Size(canvasWidth * 0.01f, canvasHeight * 0.02f)
             drawRect(rect2Color, rect2Position, rect2Size)
         }
+
+            Text(
+                text = "臺中市港區藝術中心",
+                modifier = Modifier.align(Alignment.TopStart),
+                color = Color.White
+            )
+
+
         Text(
             text = "臺中市清水區南社社區發展協會",
             modifier = Modifier.align(Alignment.BottomEnd),
-            color = Color.White
-        )
-
-        Text(
-            text = "臺中市港區藝術中心",
-            modifier = Modifier.align(Alignment.TopStart),
             color = Color.White
         )
     }
