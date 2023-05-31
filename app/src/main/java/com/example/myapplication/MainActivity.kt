@@ -1,8 +1,10 @@
 package com.example.myapplication
 
+
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
@@ -10,6 +12,9 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.geometry.Size
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
@@ -27,6 +32,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize()
                 ) {
                     Greeting("")
+                    MyComposable()
                 }
             }
         }
@@ -63,5 +69,38 @@ fun Image(painter: Painter, contentDescription: String) {
 fun DefaultPreview() {
     MyApplicationTheme {
         Greeting("")
+    }
+}
+@Composable
+fun MyComposable() {
+    Box(
+        modifier = Modifier.fillMaxSize(),
+        contentAlignment = Alignment.Center
+    ) {
+        Canvas(modifier = Modifier.fillMaxSize()) {
+            val canvasWidth = size.width
+            val canvasHeight = size.height
+
+            val rect1Color = Color.Blue
+            val rect1Position = Offset(canvasWidth * 0.405f, canvasHeight * 0.18f)
+            val rect1Size = Size(canvasWidth * 0.01f, canvasHeight * 0.02f)
+            drawRect(rect1Color, rect1Position, rect1Size)
+
+            val rect2Color = Color.Blue
+            val rect2Position = Offset(canvasWidth * 0.89f, canvasHeight * 0.93f)
+            val rect2Size = Size(canvasWidth * 0.01f, canvasHeight * 0.02f)
+            drawRect(rect2Color, rect2Position, rect2Size)
+        }
+        Text(
+            text = "臺中市清水區南社社區發展協會",
+            modifier = Modifier.align(Alignment.BottomEnd),
+            color = Color.White
+        )
+
+        Text(
+            text = "臺中市港區藝術中心",
+            modifier = Modifier.align(Alignment.TopStart),
+            color = Color.White
+        )
     }
 }
