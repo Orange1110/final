@@ -75,7 +75,7 @@ fun DefaultPreview() {
 }
 @Composable
 fun MyComposable() {
-
+    val showMessage = remember { mutableStateOf(false) }
     Box(
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
@@ -95,17 +95,5 @@ fun MyComposable() {
             drawRect(rect2Color, rect2Position, rect2Size)
         }
 
-            Text(
-                text = "臺中市港區藝術中心",
-                modifier = Modifier.align(Alignment.TopStart),
-                color = Color.White
-            )
-
-
-        Text(
-            text = "臺中市清水區南社社區發展協會",
-            modifier = Modifier.align(Alignment.BottomEnd),
-            color = Color.White
-        )
     }
 }
